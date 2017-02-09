@@ -1,5 +1,7 @@
 #! /bin/sh
 
+# usage: curl https://raw.githubusercontent.com/fainted/scripts/master/vps_shadowsocks.sh | sh
+
 # staring a shadowsocks service instance
 # for Ubuntu/Debian(apt-get) Centos(yum)
 # generate random password stored in ~/shadowsocks.password
