@@ -48,5 +48,5 @@ pip install shadowsocks
 
 # starting shadowsocks server
 PASSWORD=$(generate_password) 
-ssserver -s 0.0.0.0 -p 1984 -k $PASSWORD -m aes-256-cfb –workers 10 -d start
+ssserver -d start -s 0.0.0.0 -p 1984 -k $PASSWORD -m aes-256-cfb –workers 10
 echo $PASSWORD > ~/shadowsocks.password
