@@ -38,7 +38,7 @@ fi
 if $(has_command pip); then
         echo "pip already installed"
 elif $(has_command yum); then
-        yum install python-setuptools && easy_install pip
+        yum --assumeyes install python-setuptools && easy_install pip
 elif $(has_command apt-get); then
         apt-get install python-pip
 fi
