@@ -25,7 +25,7 @@ function has_command() {
 }
 
 function generate_password() {
-        strings /dev/urandom | head -n 10 | tr -d '[:blank:]\n\r'; echo
+        strings /dev/urandom | head -n 10 | grep -oE "\w+" | tr -d '\n\r'; echo
 }
 
 # exit if shadowsocks server started already
