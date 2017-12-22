@@ -1,6 +1,6 @@
-#! /bin/sh
+#!/bin/bash
 
-# usage: curl https://raw.githubusercontent.com/fainted/scripts/master/vps_shadowsocks.sh | sh
+# usage: curl https://raw.githubusercontent.com/fainted/scripts/master/vps_shadowsocks.sh | bash
 
 # staring a shadowsocks service instance
 # for Ubuntu/Debian(apt-get) Centos(yum)
@@ -25,7 +25,7 @@ function has_command() {
 }
 
 function generate_password() {
-        strings /dev/urandom | head -n 10 | grep -oE "\w+" | tr -d '\n\r'; echo
+        tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -1
 }
 
 # exit if shadowsocks server started already
@@ -40,7 +40,7 @@ if $(has_command pip); then
 elif $(has_command yum); then
         yum --assumeyes install python-setuptools && easy_install pip
 elif $(has_command apt-get); then
-        apt-get install python-pip
+        apt-get -y install python-pip
 fi
 
 # install shadowsocks server
